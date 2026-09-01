@@ -1,0 +1,39 @@
+aid: latiyalinfotech
+name: Latiyal Infotech
+type: Index
+kind: company
+visibility: Public
+description: Latiyal Infotech Private Limited supplies live cricket data through its Cricket Live Line API -- ball-by-ball
+  scores, match state and odds for cricket applications.
+created: '2026-08-31'
+modified: '2026-09-01'
+specificationVersion: '0.23'
+tags:
+- Cricket
+- Sports
+- Live Scores
+- Sports Data
+- Odds
+- India
+apis:
+- name: Cricket Live Line API
+  description: 'Live cricket data API. PARKED twice by the gate -- once as the company, once as the product -- and both were
+    false negatives: the declared apis.json at latiyalinfotech.com/apis.json 404s, but the site links two published Postman
+    collections on documenter.getpostman.com, a pricing page and a service page for the API. No OpenAPI, no llms.txt and no
+    well-known descriptor resolve on the domain, so none was invented. Recorded as a documented API with Postman collections
+    and no machine-readable contract. Verified 2026-09-01.'
+  humanURL: https://latiyalinfotech.com/services/cricket-live-line-api/
+  baseURL: https://latiyalinfotech.com
+  tags:
+  - Cricket
+  - Live Scores
+  - Sports Data
+  properties:
+  - type: Documentation
+    url: https://latiyalinfotech.com/services/cricket-live-line-api/
+  - type: PostmanCollection
+    url: https://documenter.getpostman.com/view/27917034/2sAY52cKG2
+  - type: PostmanCollection
+    url: https://documenter.getpostman.com/view/27917034/2sAY52cKLM
+  - type: Pricing
+    url: https://latiyalinfotech.com/cricket-live-line-api-pricing/
