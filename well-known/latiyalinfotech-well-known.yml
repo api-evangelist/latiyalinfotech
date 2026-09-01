@@ -1,0 +1,57 @@
+generated: '2026-09-01'
+method: probed
+source: live HTTP probes of the marketing host and the API host, 2026-09-01
+note: >-
+  Every named /.well-known/ path was probed on both hosts and none returned a document.
+  latiyalinfotech.com is a WordPress site that answers 404 with an HTML theme page for every
+  unknown path; apicricketchampion.in (the real API host) answers HTTP 500 with an empty body
+  at its root and for every path that is not a versioned API route, so the 500s below are the
+  application erroring, not a served document. No WellKnown or SecurityTxt pointer is emitted:
+  this file records an absence, not a presence.
+hosts:
+- host: latiyalinfotech.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: apicricketchampion.in
+  documents:
+  - path: /.well-known/security.txt
+    status: 500
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 500
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 500
+    file: null
+  - path: /.well-known/api-catalog
+    status: 500
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 500
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 500
+    file: null
+  - path: /.well-known/agent.json
+    status: 500
+    file: null

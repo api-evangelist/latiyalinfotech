@@ -1,0 +1,24 @@
+generated: '2026-09-01'
+method: searched
+source: >-
+  registry.npmjs.org search, api.github.com (user + repository search),
+  https://latiyalinfotech.com/services/cricket-live-line-api/,
+  https://rapidapi.com/latiyalinfotechprivatelimited/api/cricket-live-line4
+api: Cricket Live Line API
+package_count: 0
+packages: []
+detail: >-
+  No first-party client library exists in any registry. npm returns no package published by or for
+  Latiyal Infotech; there is no GitHub organization (api.github.com/users/latiyalinfotech -> 404)
+  and no repository under any account carrying the company's code; neither Postman collection, the
+  service page, the pricing page nor the RapidAPI listing links an SDK, and RapidAPI's own
+  generated snippets (curl / fetch / requests) are marketplace scaffolding, not a provider-shipped
+  library. No Packages or SDKs pointer is emitted -- this file records a checked zero, not an
+  unchecked gap.
+registries_checked:
+- registry: npm
+  query: cricket live line
+  result: no first-party package
+- registry: github
+  query: 'users/latiyalinfotech, search/repositories?q=latiyal+infotech'
+  result: 404 / no company-owned repository

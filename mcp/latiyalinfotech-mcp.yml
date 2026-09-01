@@ -1,0 +1,115 @@
+generated: '2026-09-01'
+method: derived
+source: >-
+  searched for a first-party MCP server (latiyalinfotech.com, apicricketchampion.in,
+  the RapidAPI listing, npm and GitHub) -- none exists; candidate tools derived from
+  postman/latiyalinfotech-cricket-live-line-v4-v5.postman_collection.json
+api: Cricket Live Line API
+status: candidate
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: api-key
+  verified: searched
+  detail: >-
+    Latiyal Infotech ships no MCP server -- no hosted endpoint, no stdio package, no reference in
+    the docs, the Postman collections, the RapidAPI listing, npm or GitHub (the company has no
+    GitHub organization). The tools below are a CANDIDATE mapping derived from the published
+    operations so the surface is legible to an agent; nothing here is served by the provider and no
+    endpoint URL has been invented. The RapidAPI marketplace path is the nearest thing to an agent
+    surface that exists today, and it is a plain REST gateway.
+search_evidence:
+- url: https://latiyalinfotech.com/
+  status: 200
+  finding: no MCP reference anywhere on the site
+- url: https://rapidapi.com/latiyalinfotechprivatelimited/api/cricket-live-line4
+  status: 200
+  finding: REST listing only; no MCP server declared
+- url: https://api.github.com/users/latiyalinfotech
+  status: 404
+  finding: no GitHub organization, so no published server repo
+candidate_tools:
+- name: list_live_matches
+  operation: liveMatchList
+  method: GET
+  description: List cricket matches currently in progress.
+  inputs: []
+- name: get_live_match
+  operation: liveMatch
+  method: POST
+  description: Ball-by-ball live state for one match; the provider's fastest feed.
+  inputs: [match_id]
+- name: get_match_info
+  operation: matchInfo
+  method: POST
+  description: Match metadata -- teams, venue, toss, format, impact-player flag.
+  inputs: [match_id]
+- name: get_scorecard
+  operation: scorecardByMatchId
+  method: POST
+  description: Full scorecard for a match.
+  inputs: [match_id]
+- name: get_commentary
+  operation: commentary
+  method: POST
+  description: Ball-by-ball commentary stream for a match.
+  inputs: [match_id]
+- name: list_upcoming_matches
+  operation: upcomingMatches
+  method: GET
+  description: Scheduled matches across covered competitions.
+  inputs: []
+- name: list_recent_matches
+  operation: recentMatches
+  method: GET
+  description: Recently completed matches.
+  inputs: []
+- name: list_series
+  operation: seriesList
+  method: GET
+  description: Current series and tournaments.
+  inputs: []
+- name: get_points_table
+  operation: pointsTable
+  method: POST
+  description: Standings for a series.
+  inputs: [series_id]
+- name: get_squads_by_match
+  operation: squadsByMatchId
+  method: POST
+  description: Announced squads for a match.
+  inputs: [match_id]
+- name: get_playing_eleven
+  operation: playingXiByMatchId
+  method: POST
+  description: Confirmed playing XI for a match.
+  inputs: [match_id]
+- name: get_player_info
+  operation: playerInfo
+  method: POST
+  description: Player profile with batting and bowling career.
+  inputs: [player_id]
+- name: get_head_to_head
+  operation: headToHeadByTeamId
+  method: POST
+  description: Historical head-to-head record between two teams for a match type.
+  inputs: [team_a_id, team_b_id, match_type]
+- name: get_series_stats
+  operation: seriesStatsBySeriesId
+  method: POST
+  description: Leaderboards for a series by batting or bowling category.
+  inputs: [series_id, type, sub_type]
+- name: list_news
+  operation: news
+  method: GET
+  description: Cricket news headlines.
+  inputs: []
+candidate_tool_count: 15
+total_operations_available: 51
+note: >-
+  All candidate tools are reads. Any real server built from this surface would be safe to expose
+  read-only, would need the plan tier (apiv3/apiv4/apiv5) as configuration because the operation
+  set differs per tier, and would have to treat HTTP 200 with status:false as a failure -- see
+  errors/latiyalinfotech-problem-types.yml.

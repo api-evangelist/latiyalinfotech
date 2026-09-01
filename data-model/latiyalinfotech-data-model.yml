@@ -1,0 +1,132 @@
+generated: '2026-09-01'
+method: derived
+source: >-
+  postman/latiyalinfotech-cricket-live-line-v4-v5.postman_collection.json (51 operations),
+  postman/latiyalinfotech-cricket-live-line-v3.postman_collection.json (30 operations)
+api: Cricket Live Line API
+note: >-
+  Derived from the identifier parameters and operation names of the published Postman collections.
+  The provider publishes no schema document and no response examples, so this graph records the
+  ENTITIES and the REFERENCES between them that the request surface proves exist; it deliberately
+  does not assert field-level shapes, which would require an authenticated capture.
+entities:
+- name: Series
+  id_field: series_id
+  id_type: integer (provider-local)
+  read_by: [seriesList, allSeriesList, squadsBySeriesId, squadsBySeriesIdV1, pointsTable, groupPointsTable, pointMatchesList, venuesBySeriesId, newsBySeriesId, seriesStatsBySeriesId, topThreePlayersBySeriesId, manOfTheSeriesV1, trackerBySeriesId, upcomingMatchesBySeriesId, recentMatchesBySeriesId]
+  example_value_in_docs: '418'
+- name: Match
+  id_field: match_id
+  id_type: integer (provider-local)
+  read_by: [liveMatchList, upcomingMatches, recentMatches, matchInfo, liveMatch, scorecardByMatchId, commentary, playingXiByMatchId, impactPlayersByMatchId, benchPlayersByMatchId, squadsByMatchId, squadsByMatchIdV1, groupSquadsByMatchId, matchOverHistory, matchProbHistory, manOfTheMatch, trackerByMatchId]
+  example_value_in_docs: '5484'
+- name: Team
+  id_field: team_id / team_a_id / team_b_id
+  id_type: integer (provider-local)
+  read_by: [teamList, teamRanking, teamFormByTeamId, headToHeadByTeamId, teamComparisonByTeamId, tossComparisonByTeamId, pointMatchesList]
+- name: Player
+  id_field: player_id
+  id_type: integer (provider-local)
+  read_by: [playerList, playerInfo, playerRanking, playerMatchList, newsByPlayerId]
+- name: Venue
+  id_field: venue_id
+  id_type: integer (provider-local)
+  read_by: [venuesBySeriesId, venuesDetail, recentMatchesByVenueId, venueScoringPattern, newsByVenueId]
+- name: NewsItem
+  id_field: news_id
+  id_type: integer (provider-local)
+  read_by: [news, newsDetail, newsBySeriesId, seriesNewsDetail, newsByPlayerId, newsByVenueId]
+- name: Ranking
+  id_field: null
+  discriminator: type
+  read_by: [playerRanking, teamRanking]
+- name: SeriesStat
+  id_field: null
+  discriminators: [type, sub_type]
+  read_by: [seriesStatsBySeriesId]
+relationships:
+- from: Series
+  to: Match
+  cardinality: has_many
+  via: series_id
+  evidence: upcomingMatchesBySeriesId, recentMatchesBySeriesId, pointMatchesList
+- from: Series
+  to: Venue
+  cardinality: has_many
+  via: series_id
+  evidence: venuesBySeriesId
+- from: Series
+  to: NewsItem
+  cardinality: has_many
+  via: series_id
+  evidence: newsBySeriesId, seriesNewsDetail
+- from: Series
+  to: Player
+  cardinality: has_many
+  via: series_id
+  evidence: squadsBySeriesId, squadsBySeriesIdV1, topThreePlayersBySeriesId, manOfTheSeriesV1
+- from: Match
+  to: Player
+  cardinality: has_many
+  via: match_id
+  evidence: playingXiByMatchId, impactPlayersByMatchId, benchPlayersByMatchId, squadsByMatchId, squadsByMatchIdV1, groupSquadsByMatchId, manOfTheMatch
+- from: Match
+  to: Team
+  cardinality: has_many
+  via: match_id
+  evidence: squadsByMatchId returns squads for both sides
+- from: Venue
+  to: Match
+  cardinality: has_many
+  via: venue_id
+  evidence: recentMatchesByVenueId, venueScoringPattern
+- from: Player
+  to: Match
+  cardinality: has_many
+  via: player_id
+  evidence: playerMatchList
+- from: Player
+  to: NewsItem
+  cardinality: has_many
+  via: player_id
+  evidence: newsByPlayerId
+- from: Venue
+  to: NewsItem
+  cardinality: has_many
+  via: venue_id
+  evidence: newsByVenueId
+- from: Team
+  to: Team
+  cardinality: pairwise comparison
+  via: team_a_id + team_b_id + match_type
+  evidence: headToHeadByTeamId, teamComparisonByTeamId, tossComparisonByTeamId, teamFormByTeamId
+enumerations_published:
+  seriesStatsBySeriesId:
+    type:
+      1: Batting
+      2: Bowling
+    sub_type_batting:
+      1: Most Runs
+      2: Highest Score
+      3: Best Batting Avg
+      4: Best Batting SR
+      5: Most Hundreds
+      6: Most Fifty
+      7: Most Fours
+      8: Most Sixes
+      9: Most Nineties
+    sub_type_bowling:
+      1: Most Wickets
+      2: Most 5 Wickets Haul
+      3: Best Bowling
+      4: Best Economy
+    source: >-
+      Published verbatim in the seriesStatsBySeriesId request description in the v4/v5 Postman
+      collection.
+  matchInfo:
+    is_impact:
+      2: impact-player rule in force; impactPlayersByMatchId may be called
+    source: Published in the impactPlayersByMatchId request description.
+gaps:
+- No response schemas or examples published; field-level shapes are unknown without an authenticated capture.
+- Identifiers are provider-local integers with no mapping to any external cricket identifier scheme.

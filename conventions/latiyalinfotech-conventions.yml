@@ -1,0 +1,99 @@
+generated: '2026-09-01'
+method: derived
+source: >-
+  postman/latiyalinfotech-cricket-live-line-v4-v5.postman_collection.json,
+  postman/latiyalinfotech-cricket-live-line-v3.postman_collection.json,
+  https://rapidapi.com/latiyalinfotechprivatelimited/api/cricket-live-line4,
+  live probe of https://apicricketchampion.in/apiv5/homeList/{api_token} (2026-09-01)
+api: Cricket Live Line API
+transport:
+  protocol: https
+  base: https://apicricketchampion.in/apiv{3|4|5}/
+  marketplace_base: https://cricket-live-line4.p.rapidapi.com/apiv5/
+  cors: 'Access-Control-Allow-Origin: * (observed 2026-09-01)'
+  allowed_methods_header: 'GET, POST, PATCH, PUT, DELETE, OPTIONS (advertised; only GET and POST are used)'
+  server: nginx/1.18.0 (Ubuntu)
+auth_style:
+  summary: opaque API token as the final path segment (direct), X-RapidAPI-Key header (marketplace)
+  see: authentication/latiyalinfotech-authentication.yml
+request_shape:
+  collection_operations: HTTP GET, no body
+  filtered_operations: HTTP POST with multipart/form-data body
+  detail: >-
+    Every parameterised operation is a POST carrying form-data fields, never a query string and
+    never JSON. The identifier fields are series_id, match_id, player_id, team_id / team_a_id /
+    team_b_id, venue_id, news_id, plus the discriminators type, sub_type, match_type and
+    paginate. Unparameterised collection reads (homeList, seriesList, allSeriesList,
+    liveMatchList, upcomingMatches, recentMatches, news, teamList) are GET.
+  content_type: multipart/form-data
+response_envelope:
+  shape: '{"status": <bool>, "msg": <string>, "data": <array|object>}'
+  success_flag: status
+  message_field: msg
+  payload_field: data
+  observed: '2026-09-01'
+  note: >-
+    The envelope is uniform across the surface but it is not RFC 9457 and it is not tied to the
+    HTTP status line -- see errors/latiyalinfotech-problem-types.yml.
+pagination:
+  supported: partial
+  style: opt-in flag on a single operation
+  detail: >-
+    Only playerList takes a `paginate` form field. No page/limit/offset/cursor parameters and no
+    pagination envelope fields (next, total, has_more) appear anywhere else in either published
+    collection. Every other list operation returns the full collection.
+  headers: none
+versioning:
+  style: path segment tied to the commercial plan
+  values: [apiv3, apiv4, apiv5]
+  detail: >-
+    The version is not a compatibility marker, it is the product tier -- apiv5 exposes more
+    operations than apiv4, which exposes more than apiv3. A customer cannot move up a version
+    without moving up a price tier. See lifecycle/latiyalinfotech-lifecycle.yml.
+  header_negotiation: none
+idempotency:
+  supported: not_applicable
+  detail: >-
+    The API is read-only. Every one of the 51 published operations is a data read; the POST verb
+    is used only to carry filter parameters in a form body, never to create, mutate or delete
+    provider-side state. There is no Idempotency-Key header, and none is needed. No Idempotency
+    pointer is emitted for this provider.
+dry_run_mode:
+  supported: not_applicable
+  detail: no write surface to rehearse.
+reversibility:
+  grade: na
+  applicable: false
+  write_surfaces: []
+  detail: >-
+    Reversibility is not applicable: Cricket Live Line publishes no write operation. Nothing an
+    agent can call against this API changes provider-side state, so there is no action to cancel,
+    refund, void or roll back. Recorded as `na` rather than zero so it leaves the denominator.
+  evidence: >-
+    All 51 operations in the v4/v5 Postman collection and all 30 in the v3 collection are reads;
+    the 53 endpoints published on the RapidAPI listing are the same read set.
+request_id_tracing:
+  supported: false
+  detail: >-
+    No X-Request-Id, X-Correlation-Id or trace header is returned. The observed response carried
+    only Server, Date, Content-Type, Transfer-Encoding, Connection and the three CORS headers,
+    so a customer has no handle to quote to support when a call misbehaves.
+rate_limit_signaling:
+  headers: none
+  detail: >-
+    No X-RateLimit-*, RateLimit-* or Retry-After header was returned on the direct host.
+    Consumption is governed by a per-operation POLLING CADENCE the provider documents in prose in
+    each Postman request description, plus the RapidAPI plan quota on the marketplace path. See
+    rate-limits/latiyalinfotech-rate-limits.yml.
+field_expansion:
+  supported: false
+sparse_fieldsets:
+  supported: false
+metadata_fields:
+  supported: false
+cross_references:
+  errors: errors/latiyalinfotech-problem-types.yml
+  lifecycle: lifecycle/latiyalinfotech-lifecycle.yml
+  authentication: authentication/latiyalinfotech-authentication.yml
+  rate_limits: rate-limits/latiyalinfotech-rate-limits.yml
+  data_model: data-model/latiyalinfotech-data-model.yml

@@ -3,37 +3,109 @@ name: Latiyal Infotech
 type: Index
 kind: company
 visibility: Public
-description: Latiyal Infotech Private Limited supplies live cricket data through its Cricket Live Line API -- ball-by-ball
-  scores, match state and odds for cricket applications.
+description: >-
+  Latiyal Infotech Private Limited (CIN U72200RJ2022PTC084893) is a software development company in
+  Kuchera, Rajasthan, India that builds mobile and web applications and sells one API product of its
+  own: the Cricket Live Line API. The feed covers 108+ cricket leagues -- international, women's,
+  franchise league, domestic, T10 and local -- and returns ball-by-ball live match state, scorecards,
+  commentary, playing XI and impact players, squads, points tables, over-by-over and probability
+  history, player and team rankings, venue scoring patterns and cricket news. It is a read-only,
+  poll-driven REST feed hosted at apicricketchampion.in and sold in four monthly INR tiers direct or
+  in four USD tiers through RapidAPI. The published machine-readable contract is a pair of first-party
+  Postman collections; there is no OpenAPI, no event surface and no agent surface.
+image: https://latiyalinfotech.com/wp-content/uploads/2023/06/cropped-favicon-270x270.png
 created: '2026-08-31'
 modified: '2026-09-01'
 specificationVersion: '0.23'
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
 tags:
 - Cricket
 - Sports
 - Live Scores
 - Sports Data
 - Odds
+- Fantasy Sports
+- Real-Time Data
+- Cricket API
 - India
+- Postman
 apis:
 - name: Cricket Live Line API
-  description: 'Live cricket data API. PARKED twice by the gate -- once as the company, once as the product -- and both were
-    false negatives: the declared apis.json at latiyalinfotech.com/apis.json 404s, but the site links two published Postman
-    collections on documenter.getpostman.com, a pricing page and a service page for the API. No OpenAPI, no llms.txt and no
-    well-known descriptor resolve on the domain, so none was invented. Recorded as a documented API with Postman collections
-    and no machine-readable contract. Verified 2026-09-01.'
+  description: >-
+    Read-only real-time cricket data API. 51 operations on the apiv5 tier (30 on apiv3), all reads,
+    served from https://apicricketchampion.in/apiv{3|4|5}/ with an opaque API token as the final path
+    segment, and mirrored on RapidAPI at cricket-live-line4.p.rapidapi.com behind the standard
+    X-RapidAPI-Key header. Parameterised calls are POSTs carrying multipart/form-data filters
+    (series_id, match_id, player_id, team_a_id/team_b_id, venue_id, news_id); collection reads are
+    GETs. Every response uses a {status, msg, data} envelope, and application failures -- including an
+    invalid credential -- are returned as HTTP 200 with status:false, so HTTP status codes carry no
+    application meaning. The provider publishes no OpenAPI; the contract is two first-party Postman
+    Collection v2.0.0 documents linked from its own homepage and saved verbatim under postman/. Base
+    URL corrected 2026-09-01 from the marketing host to the real API host, which is named in the
+    provider's own RapidAPI listing.
   humanURL: https://latiyalinfotech.com/services/cricket-live-line-api/
-  baseURL: https://latiyalinfotech.com
+  baseURL: https://apicricketchampion.in/apiv5/
   tags:
   - Cricket
   - Live Scores
   - Sports Data
+  - Real-Time Data
   properties:
   - type: Documentation
     url: https://latiyalinfotech.com/services/cricket-live-line-api/
+  - type: APIReference
+    url: https://documenter.getpostman.com/view/27917034/2sAY52cKG2
+  - type: Postman
+    url: https://documenter.getpostman.com/view/27917034/2sAY52cKG2
   - type: PostmanCollection
     url: https://documenter.getpostman.com/view/27917034/2sAY52cKG2
   - type: PostmanCollection
     url: https://documenter.getpostman.com/view/27917034/2sAY52cKLM
+  - type: PostmanCollection
+    url: postman/latiyalinfotech-cricket-live-line-v4-v5.postman_collection.json
+  - type: PostmanCollection
+    url: postman/latiyalinfotech-cricket-live-line-v3.postman_collection.json
+  - type: RapidAPI
+    url: https://rapidapi.com/latiyalinfotechprivatelimited/api/cricket-live-line4
   - type: Pricing
     url: https://latiyalinfotech.com/cricket-live-line-api-pricing/
+  - type: Authentication
+    url: authentication/latiyalinfotech-authentication.yml
+  - type: Conventions
+    url: conventions/latiyalinfotech-conventions.yml
+  - type: ErrorCatalog
+    url: errors/latiyalinfotech-problem-types.yml
+  - type: RateLimits
+    url: rate-limits/latiyalinfotech-rate-limits.yml
+  - type: Plans
+    url: plans/latiyalinfotech-plans-pricing.yml
+  - type: Lifecycle
+    url: lifecycle/latiyalinfotech-lifecycle.yml
+  - type: Conformance
+    url: conformance/latiyalinfotech-conformance.yml
+  - type: DataModel
+    url: data-model/latiyalinfotech-data-model.yml
+common:
+- type: DomainSecurity
+  url: security/latiyalinfotech-domain-security.yml
+- type: LLMsTxt
+  url: llms/latiyalinfotech-llms.txt
+- type: Blog
+  url: https://latiyalinfotech.com/blog/
+- type: BlogRSS
+  url: https://latiyalinfotech.com/feed/
+- type: Support
+  url: https://latiyalinfotech.com/contact/
+- type: TermsOfService
+  url: https://latiyalinfotech.com/terms-of-services/
+- type: PrivacyPolicy
+  url: https://latiyalinfotech.com/privacy-policy/
+- type: Pricing
+  url: https://latiyalinfotech.com/cricket-live-line-api-pricing/
+x-enrichment:
+  date: '2026-09-01'
+  status: enriched
+  artifacts_added: 16
+  pass: local-v1

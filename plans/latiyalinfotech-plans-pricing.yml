@@ -1,0 +1,129 @@
+generated: '2026-09-01'
+method: searched
+source: >-
+  https://latiyalinfotech.com/cricket-live-line-api-pricing/ (direct contract),
+  https://rapidapi.com/latiyalinfotechprivatelimited/api/cricket-live-line4 (marketplace)
+api: Cricket Live Line API
+plan_count: 8
+currencies: [INR, USD]
+note: >-
+  Two priced channels for the same API. The direct contract is sold in INR per month plus 18% GST
+  and is bought over WhatsApp -- there is no self-serve checkout. The marketplace listing is sold
+  in USD per month through RapidAPI and is the only self-serve path; the provider's own pricing
+  page links it as the 'Demo API'. A fifth private RapidAPI plan (CUSTOM-136, 136 USD/mo,
+  1,000,000 requests) exists on the listing but is marked PRIVATE and restricted to one named
+  developer, so it is recorded here as context and excluded from plan_count.
+plans:
+- name: Scorecard
+  channel: direct
+  price: 20000
+  currency: INR
+  period: month
+  tax: 18% GST additional
+  quota: not published
+  overage: not published
+  included: >-
+    Events list, live / upcoming / recent, series fixtures, squads, point table, venues, man of
+    the series, recent, tour table; news; player detail with batting and bowling career.
+  coverage: International, Women, League (IPL, BBL, BPL, PSL, CPL, RPL, THE 100, TNPL and more)
+  source: https://latiyalinfotech.com/cricket-live-line-api-pricing/
+- name: API v3
+  channel: direct
+  price: 27000
+  currency: INR
+  period: month
+  tax: 18% GST additional
+  quota: not published
+  overage: not published
+  included: >-
+    Ball-by-ball and scorecard; live match -- live, info, player11, impact and bench players,
+    scorecard, commentary, venue weather, UDRS; series fixtures, squads, point table, venues, man
+    of the series, recent, tour table; news; player detail; team and player ranking.
+  coverage: International, Women, League
+  source: https://latiyalinfotech.com/cricket-live-line-api-pricing/
+- name: API v4
+  channel: direct
+  price: 38000
+  currency: INR
+  period: month
+  tax: 18% GST additional
+  quota: not published
+  overage: not published
+  included: >-
+    Everything in v3 plus team forms, toss comparison, team comparison, head to head, pace vs spin
+    on venue, recent matches on venue, over-by-over history, projected score, venue scoring
+    pattern; series news, stats, top 3 batsman and bowler, tracker.
+  coverage: International, Women, League and Domestic
+  source: https://latiyalinfotech.com/cricket-live-line-api-pricing/
+- name: API v5
+  channel: direct
+  price: 45000
+  currency: INR
+  period: month
+  tax: 18% GST additional
+  quota: not published
+  overage: not published
+  included: >-
+    Everything in v4 plus team and player list. Two operations (teamList, playerList) are marked
+    in the Postman collection as v5-only.
+  coverage: >-
+    International, Women, League, Domestic, T10 All Series (US T10, Abu Dhabi T10, Lanka T10 and
+    more) and Local Series
+  source: https://latiyalinfotech.com/cricket-live-line-api-pricing/
+- name: BASIC
+  channel: rapidapi
+  price: 10
+  currency: USD
+  period: month
+  quota: 2000 requests per day
+  overage: 0.001 USD per request
+  hard_limit: false
+  source: https://rapidapi.com/latiyalinfotechprivatelimited/api/cricket-live-line4
+- name: PRO
+  channel: rapidapi
+  price: 220
+  currency: USD
+  period: month
+  quota: 1000000 requests per month
+  overage: 0.001 USD per request
+  hard_limit: false
+  source: https://rapidapi.com/latiyalinfotechprivatelimited/api/cricket-live-line4
+- name: ULTRA
+  channel: rapidapi
+  price: 350
+  currency: USD
+  period: month
+  quota: 5000000 requests per month
+  overage: 0.001 USD per request
+  hard_limit: false
+  source: https://rapidapi.com/latiyalinfotechprivatelimited/api/cricket-live-line4
+- name: MEGA
+  channel: rapidapi
+  price: 500
+  currency: USD
+  period: month
+  quota: 10000000 requests per month
+  overage: 0.001 USD per request
+  hard_limit: false
+  source: https://rapidapi.com/latiyalinfotechprivatelimited/api/cricket-live-line4
+free_tier:
+  exists: false
+  detail: >-
+    The service page advertises 'Get started for free for 7 days by signing up now', but no signup
+    form, trial endpoint or trial terms are published anywhere on the site -- the only routes to a
+    key are a WhatsApp message or a paid RapidAPI subscription starting at 10 USD/month. Recorded
+    as a marketing claim with no self-serve mechanism behind it.
+  source: https://latiyalinfotech.com/services/cricket-live-line-api/
+purchase_path:
+  self_serve: rapidapi only
+  direct: 'WhatsApp +918107670909 (the pricing page''s "For Paid API" link)'
+  detail: >-
+    An invalid-key response on the direct API returns the sales WhatsApp number in the error
+    message, which is the only in-band purchase signal.
+terms:
+  liability: >-
+    The pricing page carries a disclaimer of liability: the provider supplies data for
+    informational purposes only and disclaims responsibility for the manner, purpose, platform or
+    jurisdiction of the client's use, which the client assumes in full. Relevant because the API's
+    odds and fancy-market operations are commonly consumed by betting applications.
+  gst: charged as applicable

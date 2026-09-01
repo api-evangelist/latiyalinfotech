@@ -1,0 +1,33 @@
+generated: '2026-09-01'
+method: searched
+source: >-
+  https://latiyalinfotech.com/cricket-live-line-api-pricing/,
+  https://latiyalinfotech.com/services/cricket-live-line-api/,
+  https://rapidapi.com/latiyalinfotechprivatelimited/api/cricket-live-line4
+api: Cricket Live Line API
+sandbox_published: false
+test_environment: none
+test_credentials: none
+fixtures: none
+time_simulation: none
+detail: >-
+  Latiyal Infotech publishes no sandbox: there is no test host, no test/live key prefix pair, no
+  seeded fixture matches and no way to exercise the API without a live credential. The nearest
+  thing is the RapidAPI listing, which the provider labels 'Demo API' in its own site navigation
+  and links from the pricing page -- it renders an interactive console over the 53 published
+  endpoints, but executing a call there still requires an active paid subscription (BASIC, 10
+  USD/month), so it is a marketplace try-before-you-integrate surface rather than a free sandbox.
+  No Sandbox pointer is emitted: this file records the absence.
+marketing_claim:
+  text: Get started for free for 7 days by signing up now.
+  url: https://latiyalinfotech.com/services/cricket-live-line-api/
+  mechanism_published: false
+  note: >-
+    No signup form, trial endpoint, trial key or trial terms exist on the site to make the 7-day
+    claim actionable. The only documented routes to a credential are a WhatsApp message to sales
+    and a paid RapidAPI subscription.
+observed_behavior_without_credential:
+  request: 'GET https://apicricketchampion.in/apiv5/homeList/{api_token}'
+  http_status: 200
+  body: '{"status": false, "msg": "Invalid api key. ...", "data": []}'
+  checked: '2026-09-01'

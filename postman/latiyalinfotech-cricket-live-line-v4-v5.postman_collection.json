@@ -1,0 +1,1850 @@
+{
+  "info": {
+    "_postman_id": "004102ae-4297-4325-bad5-9a1735402bef",
+    "name": "API : Cricket Live Line V4 & V5",
+    "description": "<html><head></head><body><p>Note : In Environments, the value of \"api_plan\" for v5 plan is \"v5\" and for v4 plan is \"v4\".</p>\n<p>Only \"<strong>liveMatch</strong>\" api will hit every 700ms.</p>\n</body></html>",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+    "toc": [],
+    "owner": "27917034",
+    "collectionId": "004102ae-4297-4325-bad5-9a1735402bef",
+    "publishedId": "2sAY52cKG2",
+    "public": true,
+    "customColor": {
+      "top-bar": "FFFFFF",
+      "right-sidebar": "303030",
+      "highlight": "FF6C37"
+    },
+    "publishDate": "2025-05-12T07:56:41.000Z"
+  },
+  "item": [
+    {
+      "name": "Home list",
+      "id": "d6ff340a-2b27-4e09-868e-851d10ad4d13",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{api_url}}{{api_plan}}/homeList/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every min and data will stored in your DB.</p>\n",
+        "urlObject": {
+          "path": [
+            "homeList",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "d6ff340a-2b27-4e09-868e-851d10ad4d13"
+    },
+    {
+      "name": "Series list",
+      "id": "750019ab-29b3-4806-9fe7-ef09f384ac4b",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{api_url}}{{api_plan}}/seriesList/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once and data will stored in your DB.</p>\n",
+        "urlObject": {
+          "path": [
+            "seriesList",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "750019ab-29b3-4806-9fe7-ef09f384ac4b"
+    },
+    {
+      "name": "All series list",
+      "id": "056fae47-6651-4df5-92c6-cb5bcdd1d755",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{api_url}}{{api_plan}}/allSeriesList/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once and data will stored in your DB.</p>\n",
+        "urlObject": {
+          "path": [
+            "allSeriesList",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "056fae47-6651-4df5-92c6-cb5bcdd1d755"
+    },
+    {
+      "name": "Upcoming matches by series id",
+      "id": "1c93fdbf-4e9c-42c3-9c22-33b0866fb85d",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "series_id",
+              "value": "418",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/upcomingMatchesBySeriesId/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once and data will stored in your DB.<br />Filter series data from your DB where end_date of the series is greater than today date.</p>\n",
+        "urlObject": {
+          "path": [
+            "upcomingMatchesBySeriesId",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "1c93fdbf-4e9c-42c3-9c22-33b0866fb85d"
+    },
+    {
+      "name": "Recent matches by series id",
+      "id": "d849f730-3feb-401e-9369-7b4d456c8d37",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "series_id",
+              "value": "444",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/recentMatchesBySeriesId/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once and data will stored in your DB.<br />Filter series data from your DB where end_date of the series is greater than today date.</p>\n",
+        "urlObject": {
+          "path": [
+            "recentMatchesBySeriesId",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "d849f730-3feb-401e-9369-7b4d456c8d37"
+    },
+    {
+      "name": "Live matches list",
+      "id": "f65bdd39-43bb-4d49-92f2-773fdacad58d",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{api_url}}{{api_plan}}/liveMatchList/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every min and data will stored in your DB.</p>\n",
+        "urlObject": {
+          "path": [
+            "liveMatchList",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "f65bdd39-43bb-4d49-92f2-773fdacad58d"
+    },
+    {
+      "name": "Upcoming matches list",
+      "id": "5b059877-6c5d-4c5e-b42d-656163001cd4",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{api_url}}{{api_plan}}/upcomingMatches/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every 30 mins and data will stored in your DB.</p>\n",
+        "urlObject": {
+          "path": [
+            "upcomingMatches",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "5b059877-6c5d-4c5e-b42d-656163001cd4"
+    },
+    {
+      "name": "Recent matches list",
+      "id": "916d5c0c-a8ce-4d3e-91ba-efd01f15e81e",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{api_url}}{{api_plan}}/recentMatches/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every 30 mins and data will stored in your DB.</p>\n",
+        "urlObject": {
+          "path": [
+            "recentMatches",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "916d5c0c-a8ce-4d3e-91ba-efd01f15e81e"
+    },
+    {
+      "name": "Scorecard by match id",
+      "id": "7687b0cb-48e9-418d-ada0-8ab02fd7ded4",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "match_id",
+              "value": "5484",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/scorecardByMatchId/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every 1 min for live matches only and data will stored in your DB.<br />Don't hit for upcoming and finished matches.</p>\n",
+        "urlObject": {
+          "path": [
+            "scorecardByMatchId",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "7687b0cb-48e9-418d-ada0-8ab02fd7ded4"
+    },
+    {
+      "name": "Match info by match id",
+      "id": "0fc23a3b-fcbd-4e68-a8dd-fccadb73d6f4",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "match_id",
+              "value": "5484",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/matchInfo/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every 30 mins for live matches &amp; upcoming matches (for upcoming matches get data for 2 days online don't hit for more than 2 days) and data will stored in your DB.</p>\n",
+        "urlObject": {
+          "path": [
+            "matchInfo",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "0fc23a3b-fcbd-4e68-a8dd-fccadb73d6f4"
+    },
+    {
+      "name": "Playing 11 by match id",
+      "id": "24af01b5-bb0d-4681-ac6f-9c79c587aa21",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "match_id",
+              "value": "5484",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/playingXiByMatchId/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every 1 min for live match only and data will stored in your DB.<br />Don't hit for upcoming and finished matches.<br />Don't hit the api after match started.</p>\n",
+        "urlObject": {
+          "path": [
+            "playingXiByMatchId",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "24af01b5-bb0d-4681-ac6f-9c79c587aa21"
+    },
+    {
+      "name": "Impact player by match id",
+      "id": "aff38968-d4a9-4d78-9b48-6d77bb3b3880",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "match_id",
+              "value": "5484",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/impactPlayersByMatchId/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every 1 min for live match only and data will stored in your DB.<br />Don't hit for upcoming and finished matches.<br />Don't hit the api after match started.<br />If 'is_impact' = 2 in match info api than only you have to hit this api else don't hit it.</p>\n",
+        "urlObject": {
+          "path": [
+            "impactPlayersByMatchId",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "aff38968-d4a9-4d78-9b48-6d77bb3b3880"
+    },
+    {
+      "name": "Bench player by match id",
+      "id": "14b439f6-e8c1-4e81-8d81-dcfcbc87359b",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "match_id",
+              "value": "5484",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/benchPlayersByMatchId/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every 1 min for live match only and data will stored in your DB.<br />Don't hit for upcoming and finished matches.<br />Don't hit the api after match started.</p>\n",
+        "urlObject": {
+          "path": [
+            "benchPlayersByMatchId",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "14b439f6-e8c1-4e81-8d81-dcfcbc87359b"
+    },
+    {
+      "name": "Live data by match id",
+      "id": "c89ac87a-7328-4206-b78b-97b6ce41a2bb",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "match_id",
+              "value": "5484",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/liveMatch/{{api_token}}",
+        "description": "<p>Note : Hit this api at every 700ms directly from app.</p>\n",
+        "urlObject": {
+          "path": [
+            "liveMatch",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "c89ac87a-7328-4206-b78b-97b6ce41a2bb"
+    },
+    {
+      "name": "Point table by series id",
+      "id": "447ae4b7-7924-4e22-a5ee-f729b909c66e",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "series_id",
+              "value": "418",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/pointsTable/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every 30 mins and data will stored in your DB.<br />Filter series data from your DB where end_date of the series is greater than today date.</p>\n",
+        "urlObject": {
+          "path": [
+            "pointsTable",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "447ae4b7-7924-4e22-a5ee-f729b909c66e"
+    },
+    {
+      "name": "Point table v1 by series id",
+      "id": "fd0e8711-feaf-41ab-8868-12ebfbde8394",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "series_id",
+              "value": "418",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/groupPointsTable/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every 30 mins and data will stored in your DB.<br />Filter series data from your DB where end_date of the series is greater than today date.</p>\n",
+        "urlObject": {
+          "path": [
+            "groupPointsTable",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "fd0e8711-feaf-41ab-8868-12ebfbde8394"
+    },
+    {
+      "name": "News list",
+      "id": "97dce3b1-8c11-44bc-a85d-a81526cb236d",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{api_url}}{{api_plan}}/news/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at twice and data will stored in your DB.</p>\n",
+        "urlObject": {
+          "path": [
+            "news",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "97dce3b1-8c11-44bc-a85d-a81526cb236d"
+    },
+    {
+      "name": "News detail by news id",
+      "id": "303f842f-3a0f-4a83-a2b4-e12d72672efc",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "news_id",
+              "value": "1072",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/newsDetail/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at twice and data will stored in your DB.</p>\n",
+        "urlObject": {
+          "path": [
+            "newsDetail",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "303f842f-3a0f-4a83-a2b4-e12d72672efc"
+    },
+    {
+      "name": "Over history by match id",
+      "id": "893cd0b3-ccf0-4abc-affb-9868c78cf339",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "match_id",
+              "value": "5484",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/matchOverHistory/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every 1 min for live matches only and data will stored in your DB.<br />Don't hit for upcoming and finished matches</p>\n",
+        "urlObject": {
+          "path": [
+            "matchOverHistory",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "893cd0b3-ccf0-4abc-affb-9868c78cf339"
+    },
+    {
+      "name": "Match history by match id",
+      "id": "fa19652a-4fac-4bf3-b4c3-2681bde03b15",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "match_id",
+              "value": "5484",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/matchProbHistory/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every 1 min for live matches only and data will stored in your DB.<br />Don't hit for upcoming and finished matches</p>\n",
+        "urlObject": {
+          "path": [
+            "matchProbHistory",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "fa19652a-4fac-4bf3-b4c3-2681bde03b15"
+    },
+    {
+      "name": "Player ranking list",
+      "id": "6815a4dd-0adc-4858-a329-06158184e236",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "type",
+              "value": "1",
+              "description": "<p>1=Test Batsman, 2=Test Bowlers, 3=Test Allrounders, 4=ODI Batsman, 5=ODI Bowlers, 6=ODI Allrounders, 7=T20 Batsman, 8=T20 Bowlers, 9=T20 Allrounders, 10=Women's ODI Batting, 11=Women's ODI Bowling, 12=Women's ODI Allrounders, 13=Women's T20 Batting, 14=Women's T20 Bowling, 15=Women's T20 Allrounders</p>\n",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/playerRanking/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once and data will stored in your DB.</p>\n",
+        "urlObject": {
+          "path": [
+            "playerRanking",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "6815a4dd-0adc-4858-a329-06158184e236"
+    },
+    {
+      "name": "Team ranking  list",
+      "id": "f5435b38-016b-4211-8b51-edcbd794dc86",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "type",
+              "value": "1",
+              "description": "<p>1=ODI, 2=Test, 3=T20</p>\n",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/teamRanking/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once and data will stored in your DB.</p>\n",
+        "urlObject": {
+          "path": [
+            "teamRanking",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "f5435b38-016b-4211-8b51-edcbd794dc86"
+    },
+    {
+      "name": "Commentary by match id",
+      "id": "3d125255-b974-4137-aac7-2ad8bc983dbf",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "match_id",
+              "value": "5484",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/commentary/{{api_token}}",
+        "description": "<p>Note : Hit this api at every second directly from app.</p>\n",
+        "urlObject": {
+          "path": [
+            "commentary",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "3d125255-b974-4137-aac7-2ad8bc983dbf"
+    },
+    {
+      "name": "Man of the match by match id",
+      "id": "8d6a8e42-376e-45dc-8a8b-1e39c0104cf0",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "match_id",
+              "value": "5484",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/manOfTheMatch/{{api_token}}",
+        "description": "<p>Note : Create cron which will run 10 mins for finished matches for today date. and data will stored in your DB.</p>\n",
+        "urlObject": {
+          "path": [
+            "manOfTheMatch",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "8d6a8e42-376e-45dc-8a8b-1e39c0104cf0"
+    },
+    {
+      "name": "Man of the series by series id",
+      "id": "2182283c-86a4-4b73-8432-c50bf647cd02",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "series_id",
+              "value": "418",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/manOfTheSeriesV1/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once and data will stored in your DB.</p>\n",
+        "urlObject": {
+          "path": [
+            "manOfTheSeriesV1",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "2182283c-86a4-4b73-8432-c50bf647cd02"
+    },
+    {
+      "name": "Player info by player id",
+      "id": "2c44b281-3d2e-42dd-a086-4a4537cddaa3",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "player_id",
+              "value": "3289",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/playerInfo/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once and data will stored in your DB.</p>\n",
+        "urlObject": {
+          "path": [
+            "playerInfo",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "2c44b281-3d2e-42dd-a086-4a4537cddaa3"
+    },
+    {
+      "name": "Venues list by series id",
+      "id": "f0e37128-d648-48dd-978b-b44c7a0195a7",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "series_id",
+              "value": "267",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/venuesBySeriesId/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once and data will stored in your DB.<br />Filter series data from your DB where end_date of the series is greater than today date.</p>\n",
+        "urlObject": {
+          "path": [
+            "venuesBySeriesId",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "f0e37128-d648-48dd-978b-b44c7a0195a7"
+    },
+    {
+      "name": "Venues details by venue id",
+      "id": "5211f50d-50a8-42ac-a695-35010f21a3c6",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "venue_id",
+              "value": "6",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/venuesDetail/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once and data will stored in your DB.</p>\n",
+        "urlObject": {
+          "path": [
+            "venuesDetail",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "5211f50d-50a8-42ac-a695-35010f21a3c6"
+    },
+    {
+      "name": "Series news by series id",
+      "id": "7f00e45e-7dd6-4529-b83a-e6b057066cf4",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "series_id",
+              "value": "267",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/newsBySeriesId/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once and data will stored in your DB.<br />Filter series data from your DB where end_date of the series is greater than today date.</p>\n",
+        "urlObject": {
+          "path": [
+            "newsBySeriesId",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "7f00e45e-7dd6-4529-b83a-e6b057066cf4"
+    },
+    {
+      "name": "Series news detail by news id",
+      "id": "1772a93f-d09e-4ec0-940c-15bd24ff1938",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "news_id",
+              "value": "32",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/seriesNewsDetail/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once and data will stored in your DB.</p>\n",
+        "urlObject": {
+          "path": [
+            "seriesNewsDetail",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "1772a93f-d09e-4ec0-940c-15bd24ff1938"
+    },
+    {
+      "name": "Team forms by team a & b id & match type",
+      "id": "00bd73de-3e77-4a5d-8f1e-1a5de5d3674d",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "team_a_id",
+              "value": "99",
+              "type": "text"
+            },
+            {
+              "key": "team_b_id",
+              "value": "98",
+              "type": "text"
+            },
+            {
+              "key": "match_type",
+              "value": "2",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/teamFormByTeamId/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once for upcoming matches only (get data for 2 days ony, don't hit for more than 2 days) and data will stored in your DB.</p>\n",
+        "urlObject": {
+          "path": [
+            "teamFormByTeamId",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "00bd73de-3e77-4a5d-8f1e-1a5de5d3674d"
+    },
+    {
+      "name": "Head to head by team a & b id & match type",
+      "id": "56ec08f7-9751-4774-af96-5c2ba2663115",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "team_a_id",
+              "value": "99",
+              "type": "text"
+            },
+            {
+              "key": "team_b_id",
+              "value": "98",
+              "type": "text"
+            },
+            {
+              "key": "match_type",
+              "value": "2",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/headToHeadByTeamId/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once for upcoming matches only (get data for 2 days ony, don't hit for more than 2 days) and data will stored in your DB.</p>\n",
+        "urlObject": {
+          "path": [
+            "headToHeadByTeamId",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "56ec08f7-9751-4774-af96-5c2ba2663115"
+    },
+    {
+      "name": "Team comparison by team a & b id & match type",
+      "id": "f4b743fa-a3e8-4dd1-9d01-d062cf4a0598",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "team_a_id",
+              "value": "99",
+              "type": "text"
+            },
+            {
+              "key": "team_b_id",
+              "value": "98",
+              "type": "text"
+            },
+            {
+              "key": "match_type",
+              "value": "2",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/teamComparisonByTeamId/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once for upcoming matches only (get data for 2 days ony, don't hit for more than 2 days) and data will stored in your DB.</p>\n",
+        "urlObject": {
+          "path": [
+            "teamComparisonByTeamId",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "f4b743fa-a3e8-4dd1-9d01-d062cf4a0598"
+    },
+    {
+      "name": "Toss comparison by team a & b id & match type",
+      "id": "2e7c1ff1-176d-468d-9832-8ab7921a3de0",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "team_a_id",
+              "value": "99",
+              "type": "text"
+            },
+            {
+              "key": "team_b_id",
+              "value": "98",
+              "type": "text"
+            },
+            {
+              "key": "match_type",
+              "value": "2",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/tossComparisonByTeamId/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once for upcoming matches only (get data for 2 days ony, don't hit for more than 2 days) and data will stored in your DB.</p>\n",
+        "urlObject": {
+          "path": [
+            "tossComparisonByTeamId",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "2e7c1ff1-176d-468d-9832-8ab7921a3de0"
+    },
+    {
+      "name": "Recent matches list by venue id",
+      "id": "bd336596-11e0-4fa9-ba29-afe70452eb05",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "venue_id",
+              "value": "9",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/recentMatchesByVenueId/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once and data will stored in your DB.</p>\n",
+        "urlObject": {
+          "path": [
+            "recentMatchesByVenueId",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "bd336596-11e0-4fa9-ba29-afe70452eb05"
+    },
+    {
+      "name": "Stats by series id",
+      "id": "616d1d04-d3ec-4d1f-8c7e-4b08520a9946",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "series_id",
+              "value": "418",
+              "type": "text"
+            },
+            {
+              "key": "type",
+              "value": "1",
+              "description": "<p>1 = Batting, 2 = Bowling</p>\n",
+              "type": "text"
+            },
+            {
+              "key": "sub_type",
+              "value": "1",
+              "description": "<p>Batting : 1=Most Runs,2=Highest Score,3=Best Batting Avg,4=Best Batting SR,5=Most Hundreds,6=Most Fifty,7=Most Fours,8=Most Sixes,9=Most Nineties</p>\n<p>Bowling : 1=Most Wickets,2=Most 5 Wickets Haul,3=Best Bwoling,4=Best Economy</p>\n",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/seriesStatsBySeriesId/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once and data will stored in your DB.<br />Filter series data from your DB where end_date of the series is greater than today date.  </p>\n<p>\"type\" define batting &amp; bowling.<br />1 = Batting, 2 = BowlingEndFragment</p>\n<p>\"sub_type\" define sub category for above type.<br />Batting : 1=Most Runs,2=Highest Score,3=Best Batting Avg,4=Best Batting SR,5=Most Hundreds,6=Most Fifty,7=Most Fours,8=Most Sixes,9=Most Nineties</p>\n<p>Bowling : 1=Most Wickets,2=Most 5 Wickets Haul,3=Best Bwoling,4=Best Economy</p>\n",
+        "urlObject": {
+          "path": [
+            "seriesStatsBySeriesId",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "616d1d04-d3ec-4d1f-8c7e-4b08520a9946"
+    },
+    {
+      "name": "Squads by series id",
+      "id": "9c022afc-4703-48ff-8ef4-a8d7565d30bf",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "series_id",
+              "value": "402",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/squadsBySeriesId/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once and data will stored in your DB.<br />Filter series data from your DB where end_date of the series is greater than today date.</p>\n",
+        "urlObject": {
+          "path": [
+            "squadsBySeriesId",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "9c022afc-4703-48ff-8ef4-a8d7565d30bf"
+    },
+    {
+      "name": "Squads v1 by series id",
+      "id": "aa2f1acc-dc1c-4966-97ab-903fb7f786c1",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "series_id",
+              "value": "402",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/squadsBySeriesIdV1/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once and data will stored in your DB.<br />Filter series data from your DB where end_date of the series is greater than today date.</p>\n",
+        "urlObject": {
+          "path": [
+            "squadsBySeriesIdV1",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "aa2f1acc-dc1c-4966-97ab-903fb7f786c1"
+    },
+    {
+      "name": "Squads by match id",
+      "id": "756af29f-06b6-4963-be09-8c24baae0191",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "match_id",
+              "value": "5484",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/squadsByMatchId/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every 15 mins for upcoming matches only (get data for 2 days only, don't hit for more than 2 days) and data will stored in your DB.</p>\n",
+        "urlObject": {
+          "path": [
+            "squadsByMatchId",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "756af29f-06b6-4963-be09-8c24baae0191"
+    },
+    {
+      "name": "Squads v1 by match id",
+      "id": "70c8181f-06fa-4567-9c41-4eebe1d6f634",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "match_id",
+              "value": "5484",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/squadsByMatchIdV1/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every 15 mins for upcoming matches only (get data for 2 days only, don't hit for more than 2 days) and data will stored in your DB.</p>\n",
+        "urlObject": {
+          "path": [
+            "squadsByMatchIdV1",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "70c8181f-06fa-4567-9c41-4eebe1d6f634"
+    },
+    {
+      "name": "Squads v2 by match id",
+      "id": "79dd2631-e076-4600-8b2b-0e1846d9710b",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "match_id",
+              "value": "5484",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/groupSquadsByMatchId/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every 15 mins for upcoming matches only (get data for 2 days only, don't hit for more than 2 days) and data will stored in your DB.</p>\n",
+        "urlObject": {
+          "path": [
+            "groupSquadsByMatchId",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "79dd2631-e076-4600-8b2b-0e1846d9710b"
+    },
+    {
+      "name": "Top 3 players by series id",
+      "id": "8b01b942-cbaf-4ab7-b073-c163f10c55ba",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "series_id",
+              "value": "402",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/topThreePlayersBySeriesId/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once and data will stored in your DB.<br />Filter series data from your DB where end_date of the series is greater than today date.</p>\n",
+        "urlObject": {
+          "path": [
+            "topThreePlayersBySeriesId",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "8b01b942-cbaf-4ab7-b073-c163f10c55ba"
+    },
+    {
+      "name": "Venue Scoring Pattern by venue id",
+      "id": "17cc63d4-05fa-47bf-8d21-edda43169215",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "venue_id",
+              "value": "9",
+              "type": "text"
+            },
+            {
+              "key": "match_type",
+              "value": "2",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/venueScoringPattern/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once and data will stored in your DB.<br />Filter series data from your DB where end_date of the series is greater than today date.</p>\n",
+        "urlObject": {
+          "path": [
+            "venueScoringPattern",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "17cc63d4-05fa-47bf-8d21-edda43169215"
+    },
+    {
+      "name": "Point table matches list by series id",
+      "id": "c686da6d-cf51-49b2-aa8b-6e058b0aa837",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "series_id",
+              "value": "332",
+              "type": "text"
+            },
+            {
+              "key": "team_id",
+              "value": "37",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/pointMatchesList/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once and data will stored in your DB.<br />Filter series data from your DB where end_date of the series is greater than today date.</p>\n",
+        "urlObject": {
+          "path": [
+            "pointMatchesList",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "c686da6d-cf51-49b2-aa8b-6e058b0aa837"
+    },
+    {
+      "name": "Team List",
+      "id": "829e34ba-4e0f-47ca-8a62-c4fa4de164ca",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{api_url}}{{api_plan}}/teamList/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once and data will stored in your DB.<br />This end point only work for v5 plan.</p>\n",
+        "urlObject": {
+          "path": [
+            "teamList",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "829e34ba-4e0f-47ca-8a62-c4fa4de164ca"
+    },
+    {
+      "name": "Player List",
+      "id": "ef65739b-8f5d-48a3-8c9c-04cb7e48735e",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "paginate",
+              "value": "0",
+              "description": "<p>here you will get 50 records at a time, to get next 50 records add 50 to paginate key and soon.</p>\n",
+              "type": "text",
+              "uuid": "b9f0e87b-6542-4e3e-a097-a30a47e7534e"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/playerList/{{api_token}}",
+        "description": "<p>Note : Create cron which will run every day at once and data will stored in your DB.<br />This end point only work for v5 plan.</p>\n",
+        "urlObject": {
+          "path": [
+            "playerList",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "ef65739b-8f5d-48a3-8c9c-04cb7e48735e"
+    },
+    {
+      "name": "Recent matches by player id",
+      "id": "11c93e77-3a1b-4c3e-afef-e7e36f01c31f",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "player_id",
+              "value": "",
+              "type": "text",
+              "uuid": "fb759381-0ca2-4ae1-96d9-54ec71367db2"
+            },
+            {
+              "key": "type",
+              "value": "",
+              "description": "<p>1=batting, 2=bowling</p>\n",
+              "type": "text",
+              "uuid": "b2507d43-e59b-442f-af50-f1dbbce6f499"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/playerMatchList/{{api_token}}",
+        "urlObject": {
+          "path": [
+            "playerMatchList",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "11c93e77-3a1b-4c3e-afef-e7e36f01c31f"
+    },
+    {
+      "name": "Tracker by series id",
+      "id": "f51639c8-c34c-49a9-b407-75106cde496e",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "series_id",
+              "value": "",
+              "type": "text",
+              "uuid": "d272ac0c-0faf-4f7d-844c-ded2f1a225bd"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/trackerBySeriesId/{{api_token}}",
+        "urlObject": {
+          "path": [
+            "trackerBySeriesId",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "f51639c8-c34c-49a9-b407-75106cde496e"
+    },
+    {
+      "name": "Tracker by match id",
+      "id": "85b17334-716b-40b9-8ddd-f940a2cd18ba",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "match_id",
+              "value": "",
+              "type": "text",
+              "uuid": "02bbf884-9392-457a-9f98-7be46492268f"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/trackerByMatchId/{{api_token}}",
+        "urlObject": {
+          "path": [
+            "trackerByMatchId",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "85b17334-716b-40b9-8ddd-f940a2cd18ba"
+    },
+    {
+      "name": "News list by player id",
+      "id": "62d02620-c82a-4b3d-b3f0-c16754d9d25a",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "player_id",
+              "value": "",
+              "type": "text",
+              "uuid": "67678f16-81e9-4804-a39c-a64e48869082"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/newsByPlayerId/{{api_token}}",
+        "urlObject": {
+          "path": [
+            "newsByPlayerId",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "62d02620-c82a-4b3d-b3f0-c16754d9d25a"
+    },
+    {
+      "name": "News list by venue id",
+      "id": "e43e481f-3902-4019-b9a3-6e75f7b16c3d",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "venue_id",
+              "value": "",
+              "type": "text",
+              "uuid": "91dd7a01-2955-4edb-af54-5c9556b53f34"
+            }
+          ]
+        },
+        "url": "{{api_url}}{{api_plan}}/newsByVenueId/{{api_token}}",
+        "urlObject": {
+          "path": [
+            "newsByVenueId",
+            "{{api_token}}"
+          ],
+          "host": [
+            "{{api_url}}{{api_plan}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [],
+      "_postman_id": "e43e481f-3902-4019-b9a3-6e75f7b16c3d"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+generated: '2026-09-01'
+method: derived
+source: >-
+  postman/latiyalinfotech-cricket-live-line-v4-v5.postman_collection.json,
+  postman/latiyalinfotech-cricket-live-line-v3.postman_collection.json,
+  https://rapidapi.com/latiyalinfotechprivatelimited/api/cricket-live-line4,
+  live probe of https://apicricketchampion.in/apiv5/homeList/{api_token} (2026-09-01)
+api: Cricket Live Line API
+summary: >-
+  Two distribution paths, two different credential models. Direct customers call
+  apicricketchampion.in with an opaque API token embedded as the LAST PATH SEGMENT of every
+  request; RapidAPI subscribers call the same API through cricket-live-line4.p.rapidapi.com
+  with the standard RapidAPI header pair. There is no OAuth, no OIDC, no mTLS, and no scope
+  system on either path. The provider publishes no dedicated authentication page -- the model
+  is only visible in the Postman collections and the RapidAPI listing.
+schemes:
+- name: api_token_in_path
+  type: apiKey
+  in: path
+  parameter: api_token
+  position: final path segment
+  applies_to: https://apicricketchampion.in/apiv{3,4,5}/{operation}/{api_token}
+  distribution: direct contract; token issued by the provider after purchase (WhatsApp / sales)
+  rotation_documented: false
+  scopes: none
+  evidence: >-
+    Every request in both published Postman collections is
+    {{api_url}}{{api_plan}}/<operation>/{{api_token}} -- 51 of 51 in the v4/v5 collection and
+    30 of 30 in the v3 collection.
+  note: >-
+    A credential in the URL path is a real security finding, not a style choice: it lands in
+    proxy logs, browser history, Referer headers and CDN access logs, and it cannot be rotated
+    per-request or scoped. A header or Authorization scheme would cost the provider nothing and
+    is the single highest-value auth change available to them.
+- name: rapidapi_headers
+  type: apiKey
+  in: header
+  parameter: X-RapidAPI-Key
+  additional_headers:
+  - X-RapidAPI-Host: cricket-live-line4.p.rapidapi.com
+  applies_to: https://cricket-live-line4.p.rapidapi.com
+  distribution: self-serve; issued by RapidAPI on subscription to a plan
+  rotation_documented: false
+  scopes: none
+  evidence: >-
+    The RapidAPI listing publishes cricket-live-line4.p.rapidapi.com as the public DNS for the
+    API; RapidAPI's gateway enforces its standard X-RapidAPI-Key / X-RapidAPI-Host pair.
+plan_selection:
+  mechanism: path segment
+  detail: >-
+    The plan tier is also carried in the path, not in the credential: {{api_plan}} resolves to
+    apiv3, apiv4 or apiv5 depending on the plan purchased. The provider states it plainly in the
+    v4/v5 collection description -- 'In Environments, the value of "api_plan" for v5 plan is
+    "v5" and for v4 plan is "v4"'.
+failure_behavior:
+  http_status_on_invalid_credential: 200
+  body: '{"status": false, "msg": "Invalid api key. ...", "data": []}'
+  observed: '2026-09-01 against https://apicricketchampion.in/apiv5/homeList/{api_token}'
+  note: >-
+    Authentication failure is returned as HTTP 200 with status:false in the envelope. An agent
+    or client that branches on the HTTP status code will treat a rejected credential as success.
+gaps:
+- No published authentication reference page on latiyalinfotech.com.
+- No documented key rotation, revocation or expiry policy.
+- No 401/403 status codes; auth failures are 200 with an in-body flag.
+- No scopes, no least-privilege model, no per-key restriction documented.

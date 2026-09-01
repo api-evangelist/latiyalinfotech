@@ -1,0 +1,60 @@
+generated: '2026-09-01'
+method: searched
+source: >-
+  https://latiyalinfotech.com/cricket-live-line-api-pricing/,
+  https://rapidapi.com/latiyalinfotechprivatelimited/api/cricket-live-line4,
+  postman/latiyalinfotech-cricket-live-line-v4-v5.postman_collection.json,
+  postman/latiyalinfotech-cricket-live-line-v3.postman_collection.json
+api: Cricket Live Line API
+versioning:
+  scheme: path segment, tied to the commercial tier
+  current: apiv5
+  supported: [apiv3, apiv4, apiv5]
+  detail: >-
+    apiv3, apiv4 and apiv5 are concurrently sold products, not a compatibility ladder. The
+    provider publishes a separate Postman collection for v3 (30 operations) and a combined one for
+    v4/v5 (51 operations); the extra 21 operations in the newer collection are the ones a customer
+    buys by moving up a tier. Two operations are explicitly marked 'This end point only work for
+    v5 plan' (teamList, playerList).
+  header_negotiation: none
+  rapidapi_version: 1.0.0 (single version, created 2026-06-01)
+deprecation:
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  deprecated_operations: []
+  detail: >-
+    No deprecation policy, no notice period, no RFC 8594 Sunset or Deprecation headers, and no
+    statement of how long apiv3 will remain sold or served. A v1/v2 presumably preceded the
+    published v3 but nothing records their retirement. No Deprecation pointer is emitted.
+status_page:
+  exists: false
+  url: null
+  detail: >-
+    No status page, no uptime history and no incident log on latiyalinfotech.com,
+    apicricketchampion.in or any status.* subdomain. The only availability signal in existence is
+    RapidAPI's own gateway measurement on the listing -- average service level 100%, average
+    latency 287ms, average success rate 100% -- which is the marketplace's telemetry, not a
+    provider-published status page. No StatusPage pointer is emitted.
+sla:
+  published: false
+  uptime_commitment: null
+  support_response_commitment: null
+  detail: >-
+    The service page claims '24/7 support' in marketing copy; no SLA document, credit regime or
+    response-time commitment is published. The pricing page's terms are a disclaimer of liability,
+    not a service commitment.
+changelog:
+  published: false
+  detail: >-
+    No dated changelog, release notes or version history for the API. The company blog carries
+    marketing posts about cricket app development, not API release notes.
+maturity:
+  first_seen_rapidapi: '2026-06-01'
+  subscriptions_reported: 28
+  source: https://rapidapi.com/latiyalinfotechprivatelimited/api/cricket-live-line4
+gaps:
+- No status page.
+- No deprecation policy or Sunset/Deprecation headers.
+- No changelog.
+- No SLA.

@@ -1,0 +1,75 @@
+generated: '2026-09-01'
+method: derived
+source: >-
+  postman/latiyalinfotech-cricket-live-line-v4-v5.postman_collection.json,
+  live probe of https://apicricketchampion.in/apiv5/homeList/{api_token} (2026-09-01),
+  https://latiyalinfotech.com/cricket-live-line-api-pricing/
+api: Cricket Live Line API
+standards:
+- id: openapi
+  conforms: false
+  evidence: >-
+    No OpenAPI or Swagger document is served on latiyalinfotech.com, apicricketchampion.in or the
+    RapidAPI listing. The published machine-readable contract is a pair of Postman Collection
+    v2.0.0 documents.
+- id: postman-collection-v2
+  conforms: true
+  evidence: >-
+    Two first-party collections declare schema
+    https://schema.getpostman.com/json/collection/v2.0.0/collection.json and are linked from the
+    provider's own homepage; saved verbatim under postman/.
+- id: oauth2
+  conforms: false
+  evidence: No OAuth flow, authorization server or token endpoint exists; auth is an opaque token in the URL path.
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404 on the marketing host and 500 on the API host.
+- id: rfc9457
+  conforms: false
+  evidence: >-
+    Errors are returned as application/json with a custom {status, msg, data} envelope at HTTP 200,
+    not application/problem+json.
+- id: rfc9116
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 (latiyalinfotech.com) and 500 (apicricketchampion.in).
+- id: rfc8594
+  conforms: false
+  evidence: No Sunset or Deprecation response headers; no deprecation policy published.
+- id: rate-limit-headers
+  conforms: false
+  evidence: >-
+    No X-RateLimit-*, RateLimit-* or Retry-After header on the observed response from
+    apicricketchampion.in.
+- id: idempotency
+  conforms: not_applicable
+  evidence: Read-only API; no write surface, so no idempotency key is required.
+- id: pagination
+  conforms: partial
+  evidence: >-
+    A single opt-in `paginate` form field on playerList. No page/limit/offset/cursor parameters and
+    no pagination envelope fields on any other list operation.
+- id: cors
+  conforms: true
+  evidence: >-
+    'Access-Control-Allow-Origin: *' with an explicit Allow-Methods and Allow-Headers set, observed
+    2026-09-01 -- the API is directly callable from a browser, which matches the provider's stated
+    pattern of hitting liveMatch and commentary from the app.
+- id: http-status-semantics
+  conforms: false
+  evidence: An invalid credential returns HTTP 200 with status:false in the body; unknown paths return a bare 500.
+domain_standard:
+  market: sports data / live cricket feeds
+  standard_declared: none
+  conforms: false
+  evidence: >-
+    No domain standard is declared anywhere in the contract. The cricket and sports-data market has
+    no widely adopted open interchange schema comparable to SCIM, OData, OpenRTB or HL7, and the
+    provider does not claim one; entity ids (series_id, match_id, player_id, team_id, venue_id) are
+    provider-local integers with no external identifier scheme. REWARD-ONLY dimension -- recorded as
+    absent, not as a failure.
+compliance:
+  certifications_published: []
+  trust_center: false
+  detail: >-
+    No SOC 2, ISO 27001, PCI, GDPR or DPA documentation is published. The company publishes a
+    privacy policy, terms and refund policy only. No Compliance pointer is emitted.

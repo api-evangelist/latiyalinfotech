@@ -1,0 +1,109 @@
+generated: '2026-09-01'
+method: searched
+source: >-
+  https://rapidapi.com/latiyalinfotechprivatelimited/api/cricket-live-line4 (plan quotas),
+  postman/latiyalinfotech-cricket-live-line-v4-v5.postman_collection.json (per-operation polling
+  cadence, published by the provider in each request description),
+  live probe of https://apicricketchampion.in/apiv5/homeList/{api_token} (response headers)
+api: Cricket Live Line API
+limit_count: 4
+summary: >-
+  Two different limit regimes. On the direct contract (apicricketchampion.in) the provider
+  publishes NO numeric limit and returns NO rate-limit headers -- consumption is governed
+  instead by a prescriptive per-operation POLLING CADENCE written into every Postman request
+  description, which is unusual and genuinely useful data. On the marketplace path
+  (cricket-live-line4.p.rapidapi.com) RapidAPI enforces a hard request quota per plan.
+response_headers:
+  observed: false
+  probed: '2026-09-01'
+  headers_present: []
+  detail: >-
+    The 200 response carried Server, Date, Content-Type, Transfer-Encoding, Connection,
+    Access-Control-Allow-Origin, Access-Control-Allow-Methods and Access-Control-Allow-Headers.
+    No X-RateLimit-Limit / -Remaining / -Reset, no RFC 9238 RateLimit-* fields, no Retry-After.
+    A client has no runtime signal of how much budget is left; on the RapidAPI path the gateway
+    returns its own X-RateLimit-Requests-Limit / -Remaining pair.
+  status_code_on_exhaustion: undocumented
+limits:
+- scope: per-subscription (marketplace)
+  plan: BASIC
+  window: day
+  limit: 2000
+  unit: requests
+  overage: 0.001 USD per request
+  hard_limit: false
+  source: https://rapidapi.com/latiyalinfotechprivatelimited/api/cricket-live-line4
+- scope: per-subscription (marketplace)
+  plan: PRO
+  window: month
+  limit: 1000000
+  unit: requests
+  overage: 0.001 USD per request
+  hard_limit: false
+  source: https://rapidapi.com/latiyalinfotechprivatelimited/api/cricket-live-line4
+- scope: per-subscription (marketplace)
+  plan: ULTRA
+  window: month
+  limit: 5000000
+  unit: requests
+  overage: 0.001 USD per request
+  hard_limit: false
+  source: https://rapidapi.com/latiyalinfotechprivatelimited/api/cricket-live-line4
+- scope: per-subscription (marketplace)
+  plan: MEGA
+  window: month
+  limit: 10000000
+  unit: requests
+  overage: 0.001 USD per request
+  hard_limit: false
+  source: https://rapidapi.com/latiyalinfotechprivatelimited/api/cricket-live-line4
+direct_contract_limits:
+  published: false
+  detail: >-
+    Neither latiyalinfotech.com/cricket-live-line-api-pricing/ nor either Postman collection
+    states a request ceiling for the direct contract. The plan tiers are priced per month with no
+    call quota attached.
+polling_cadence:
+  method: searched
+  note: >-
+    Published verbatim by the provider in each Postman request description. This is the closest
+    thing to a rate limit the direct contract has: it is guidance, not enforcement, and no header
+    or error tells a client when it is exceeded.
+  fastest_documented: 700ms
+  rules:
+  - operation: liveMatch
+    cadence: every 700ms
+    from: app (client) directly
+  - operation: commentary
+    cadence: every 1 second
+    from: app (client) directly
+  - operations: [homeList, liveMatchList]
+    cadence: every 1 minute
+    from: server cron
+  - operations: [scorecardByMatchId, playingXiByMatchId, impactPlayersByMatchId, benchPlayersByMatchId, matchOverHistory, matchProbHistory]
+    cadence: every 1 minute, live matches only
+    from: server cron
+    constraint: do not call for upcoming or finished matches
+  - operations: [manOfTheMatch]
+    cadence: every 10 minutes, finished matches on today's date
+    from: server cron
+  - operations: [squadsByMatchId, squadsByMatchIdV1, groupSquadsByMatchId]
+    cadence: every 15 minutes, upcoming matches only, 2-day horizon
+    from: server cron
+  - operations: [upcomingMatches, recentMatches, matchInfo, pointsTable, groupPointsTable]
+    cadence: every 30 minutes
+    from: server cron
+  - operations: [news, newsDetail]
+    cadence: twice daily
+    from: server cron
+  - operations: [seriesList, allSeriesList, playerRanking, teamRanking, playerInfo, venuesDetail, teamList, playerList, and the remaining reference reads]
+    cadence: once daily
+    from: server cron
+  architecture_note: >-
+    The provider's stated integration pattern is cache-and-serve: every operation except liveMatch
+    and commentary is meant to be pulled by a cron into the customer's own database and served from
+    there. Only the two ball-by-ball operations are meant to be called from the end-user app.
+gaps:
+- No rate-limit response headers on the direct host.
+- No documented status code or Retry-After on exhaustion.
+- No numeric quota published for the direct (non-marketplace) contract.

@@ -1,0 +1,58 @@
+generated: '2026-09-01'
+method: probed
+source: >-
+  live probe of https://apicricketchampion.in/apiv5/homeList/{api_token} (2026-09-01);
+  postman/latiyalinfotech-cricket-live-line-v4-v5.postman_collection.json
+api: Cricket Live Line API
+format: custom
+rfc9457: false
+problem_json_media_type: false
+envelope:
+  media_type: application/json
+  shape: '{"status": <bool>, "msg": <string>, "data": <array|object>}'
+  error_signal: status == false
+  human_message_field: msg
+  machine_code_field: null
+  detail: >-
+    There is no error CODE anywhere in the surface -- no numeric class, no string slug, no type
+    URI. The only machine-readable signal is the boolean `status`; everything else a client
+    could branch on is inside a free-text English `msg` that also carries a sales phone number.
+http_status_semantics:
+  meaningful: false
+  observed_status_on_auth_failure: 200
+  detail: >-
+    An invalid credential returns HTTP 200 OK. No 4xx or 5xx was observed on any application-level
+    failure. A client or agent that checks response.ok, response.status < 400, or raise_for_status()
+    will treat every rejection as a success and then parse an empty data array as 'no matches today'.
+    This is the single most consequential error-semantics defect on this API.
+problem_types:
+- id: invalid-api-key
+  title: Invalid api key
+  observed_message: 'Invalid api key. For purchase please whatsapp us : +918107670909'
+  http_status: 200
+  envelope_status: false
+  cause: token missing, expired, unpurchased, or not valid for the requested apiv{n} tier
+  remediation: >-
+    Obtain a token from the provider (direct sale) or subscribe on RapidAPI; confirm the plan
+    segment in the path matches the tier the token was issued for.
+  method: probed
+  evidence: 'GET https://apicricketchampion.in/apiv5/homeList/{api_token} -> 200, body status:false, 2026-09-01'
+- id: server-error
+  title: Unhandled application error
+  http_status: 500
+  envelope_status: null
+  body: empty
+  cause: >-
+    Any request to apicricketchampion.in that is not a well-formed versioned API route -- the host
+    root, /openapi.json, every /.well-known/ path -- returns a bare HTTP 500 with no body.
+  remediation: >-
+    Provider-side: return 404 for unknown paths. A blanket 500 makes ordinary discovery
+    indistinguishable from an outage.
+  method: probed
+  evidence: 'GET https://apicricketchampion.in/ -> 500, empty body, 2026-09-01'
+gaps:
+- No published error reference page.
+- No error codes; failures are distinguishable only by English message text.
+- No RFC 9457 problem+json, and no plan to adopt it is stated anywhere.
+- HTTP status codes carry no application meaning.
+- Rate-limit exhaustion behaviour is undocumented and was not observed.
