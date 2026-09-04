@@ -13,6 +13,22 @@ description: >-
   poll-driven REST feed hosted at apicricketchampion.in and sold in four monthly INR tiers direct or
   in four USD tiers through RapidAPI. The published machine-readable contract is a pair of first-party
   Postman collections; there is no OpenAPI, no event surface and no agent surface.
+accessModel:
+  pricing: paid
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Paid
+  confidence: high
+  source:
+  - plans
+  - authentication
+  - rate-limits
+  - security
+  - sandbox
+  generated: '2026-09-03'
+  method: derived
 image: https://latiyalinfotech.com/wp-content/uploads/2023/06/cropped-favicon-270x270.png
 created: '2026-08-31'
 modified: '2026-09-01'
