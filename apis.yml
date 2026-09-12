@@ -104,6 +104,8 @@ apis:
   - type: DataModel
     url: data-model/latiyalinfotech-data-model.yml
 common:
+- type: Website
+  url: https://www.latiyalinfotech.com/
 - type: DomainSecurity
   url: security/latiyalinfotech-domain-security.yml
 - type: LLMsTxt
