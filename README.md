@@ -64,10 +64,114 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Latiyal Infotech Private Limited — Cricket Live Line API. Profiled by
-[API Evangelist](https://apievangelist.com) and listed on [APIs.io](https://apis.io).
+Latiyal Infotech Private Limited (CIN U72200RJ2022PTC084893) is a software development company in Kuchera, Rajasthan, India that builds mobile and web applications and sells one API product of its own: the Cricket Live Line API. The feed covers 108+ cricket leagues -- international, women's, franchise league, domestic, T10 and local -- and returns ball-by-ball live match state, scorecards, commentary, playing XI and impact players, squads, points tables, over-by-over and probability history, player and team rankings, venue scoring patterns and cricket news. It is a read-only, poll-driven REST feed hosted at apicricketchampion.in and sold in four monthly INR tiers direct or in four USD tiers through RapidAPI. The published machine-readable contract is a pair of first-party Postman collections; there is no OpenAPI, no event surface and no agent surface.
 
-Submitted twice on 2026-08-31 and **parked by the gate both times** — once under the
-company name, once under the product name. Both were false negatives: the declared
-`apis.json` 404s, but the site publishes two Postman collections, a pricing page and a
-service page for the API.
+**Areas:** Cricket · Sports · Live Scores · Sports Data · Odds · Fantasy Sports · Real-Time Data · Cricket API · India · Postman
+
+## Latiyal Infotech on APIs.io
+
+Everything profiled for Latiyal Infotech is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/latiyalinfotech/](https://apis.io/providers/latiyalinfotech/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Cricket Live Line API](https://apis.io/apis/latiyalinfotech/cricket-live-line-api/) — Read-only real-time cricket data API. 51 operations on the apiv5 tier (30 on apiv3), all reads, served from https://apicricketchampion.in/apiv{3|4|5}/ with…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [latiyalinfotech-mcp.yml](https://apis.io/servers/latiyalinfotech/latiyalinfotech-mcp-yml/)
+
+#### Collections (2)
+
+Postman and Open Collection request collections.
+
+- [API : Cricket Live Line V3](https://apis.io/collections/latiyalinfotech/postman-latiyalinfotech-cricket-live-line-v3/)
+- [API : Cricket Live Line V4 & V5](https://apis.io/collections/latiyalinfotech/postman-latiyalinfotech-cricket-live-line-v4-v5/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Latiyalinfotech Authentication](https://apis.io/security/latiyalinfotech/latiyalinfotech-authentication/)
+- [Latiyalinfotech Domain Security](https://apis.io/security/latiyalinfotech/latiyalinfotech-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Latiyalinfotech Plans Pricing](https://apis.io/plans/latiyalinfotech/latiyalinfotech-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Latiyalinfotech Rate Limits](https://apis.io/rate-limits/latiyalinfotech/latiyalinfotech-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.latiyalinfotech.com/)
+- [Pricing](https://latiyalinfotech.com/cricket-live-line-api-pricing/)
+- [Support](https://latiyalinfotech.com/contact/)
+- [Blog](https://latiyalinfotech.com/blog/)
+- [Terms of service](https://latiyalinfotech.com/terms-of-services/)
+- [Privacy policy](https://latiyalinfotech.com/privacy-policy/)
+
+## API Evangelist rating
+
+**Kin Score 34.1** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 0.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 31.6 |
+| Developer ergonomics | 40.5 |
+| Access clarity | 63.2 |
+
+**Agent readiness 7.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 24.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/latiyalinfotech/](https://apis.io/providers/latiyalinfotech/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Latiyal Infotech: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/latiyalinfotech/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
